@@ -23,15 +23,18 @@ WebDriver driver;
 		if (BROWSER.equalsIgnoreCase("Chrome")) {
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
+		System.out.println(BROWSER);
 	}
 		else if (BROWSER.equalsIgnoreCase("Firefox")) {
 			System.setProperty("webdriver.gecko.driver", "src/main/resources/Drivers/geckodriver.exe");
 			driver = new FirefoxDriver();
+			System.out.println(BROWSER);
 		}
 		
 		else if (BROWSER.equalsIgnoreCase("Explorer")) {
 			System.setProperty("webdriver.ie.driver", "src/main/resources/Drivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
+			System.out.println(BROWSER);
 		}
 		
 		else 
