@@ -5,18 +5,39 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class MonTest {
 
-	WebDriver driver;
+private String BROWSER=System.getProperty("browser");
+	
+WebDriver driver;
 
 	@Before
+	
 	public void setUp() {
 		System.out.println("\n@Before");
 
+		
+		
+		if (BROWSER.equalsIgnoreCase("Chrome")) {
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
+	}
+		else if (BROWSER.equalsIgnoreCase("Firefox")) {
+			System.setProperty("webdriver.gecko.driver", "src/main/resources/Drivers/geckodriver.exe");
+			driver = new FirefoxDriver();
+		}
+		
+		else if (BROWSER.equalsIgnoreCase("Explorer")) {
+			System.setProperty("webdriver.ie.driver", "src/main/resources/Drivers/IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
+		}
+		
+		else 
+			System.out.println("Veuillez choisir un navigateur entre Chrome, Fixefoxe et Explorer");
 	}
 
 	@Test
