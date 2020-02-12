@@ -19,8 +19,6 @@ WebDriver driver;
 	
 	public void setUp() {
 		System.out.println("\n@Before");
-
-		
 		
 		if (BROWSER.equalsIgnoreCase("Chrome")) {
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver.exe");
